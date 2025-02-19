@@ -38,13 +38,11 @@ public class CameraController : MonoBehaviour
     {
         if (collision.CompareTag("CameraBlock_Y"))
         {
-            Debug.Log("Block");
             isYblocked = true;
         }
 
         if (collision.CompareTag("CameraBlock_X"))
         {
-            Debug.Log("Block");
             isXblocked = true;
         }
     }
@@ -53,13 +51,11 @@ public class CameraController : MonoBehaviour
     {
         if (collision.CompareTag("CameraBlock_Y"))
         {
-            Debug.Log("NoBlock");
             isYblocked = false;
         }
 
         if (collision.CompareTag("CameraBlock_X"))
         {
-            Debug.Log("NoBlock");
             isXblocked = false;
         }
     }
