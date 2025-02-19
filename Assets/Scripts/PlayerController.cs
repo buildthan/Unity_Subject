@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rigidbody;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     Vector2 movement = Vector2.zero;
-    Vector2 direction = Vector2.zero;
+
+    protected AnimationHandler animationHandler;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        animationHandler = GetComponent<AnimationHandler>();
     }
 
     // Start is called before the first frame update
@@ -38,8 +40,9 @@ public class PlayerController : MonoBehaviour
         movement = new Vector2(horizontal, vertical).normalized;
         movement = movement * 5;
         _rigidbody.velocity = movement; //키보드를 누른 방향으로 일정하게 움직임
+        animationHandler.Move(movement);
 
-        if(horizontal > 0) //오른쪽을 향한 경우
+        if (horizontal > 0) //오른쪽을 향한 경우
         {
             _spriteRenderer.flipX = false;
         }
