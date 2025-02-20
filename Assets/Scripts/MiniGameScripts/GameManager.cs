@@ -6,15 +6,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
+    //게임 진행, 점수, 그리고 UI와 관련된 모든 것을 이곳에서 해결합니다.
 {
     public GameObject player;
+    //플레이어 관련
+
     public GameObject homeUI;
     public GameObject gameUI;
     public GameObject scoreUI;
+    //UI 관련
 
     public TextMeshProUGUI currentScoreText;
     public TextMeshProUGUI currentScoreText_ScoreBoard;
     public TextMeshProUGUI bestScoreText;
+    //UI 관련 2
 
     static GameManager gameManager;
     public static GameManager Instance
@@ -27,20 +32,19 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gameManager = this;
-        homeUI.SetActive(true);
+        homeUI.SetActive(true); //홈 ui 생성
     }
 
-    public void GameStart()
+    public void GameStart() //홈 Ui 끄고 게임 진행 Ui 활성화
     {
         player.SetActive(true);
         homeUI.SetActive(false);
 
         gameUI.SetActive(true);
 
-
     }
 
-    public void GameOver()
+    public void GameOver() //게임 진행 Ui 끄고 점수 보드 Ui 활성화
     {
         int bestscore = 0;
 
@@ -64,9 +68,9 @@ public class GameManager : MonoBehaviour
         scoreUI.SetActive(true);
     }
 
-    public void ExitMiniGame()
+    public void ExitMiniGame() //나가기를 누르면 메인 스크린을 다시 불러옴
     {
-        PlayerPrefs.SetInt("PlayedMiniGame", 1);
+        PlayerPrefs.SetInt("PlayedMiniGame", 1); //미니게임을 플레이했다고 메인신에 알려줌.
         SceneManager.LoadScene("MainScene");
     }
 
