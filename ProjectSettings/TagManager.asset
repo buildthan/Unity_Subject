@@ -7,6 +7,8 @@ TagManager:
   - CameraBlock
   - CameraBlock_Y
   - CameraBlock_X
+  - Obstacle
+  - BackGround
   layers:
   - Default
   - TransparentFX
