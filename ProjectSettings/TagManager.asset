@@ -9,6 +9,7 @@ TagManager:
   - CameraBlock_X
   - Obstacle
   - BackGround
+  - ScoreBox
   layers:
   - Default
   - TransparentFX

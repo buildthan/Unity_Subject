@@ -16,6 +16,8 @@ public class MiniGamePlayerController : MonoBehaviour
     bool isJump = false;
     bool isInAir = true;
 
+    public int scores;
+
     public bool godMode = false;
 
     // Start is called before the first frame update
@@ -32,10 +34,7 @@ public class MiniGamePlayerController : MonoBehaviour
 
         if(isDie) //죽은경우
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-            {
-                manager.ExitMiniGame();
-            }
+            manager.GameOver();
         }
         else //죽지 않았다면
         {
@@ -85,6 +84,18 @@ public class MiniGamePlayerController : MonoBehaviour
 
             animator.SetBool("IsDie", true);
             isDie = true;
+        }
+
+        if(collision.CompareTag("ScoreBox"))
+        {
+            scores++;
+
+            if (scores % 2 == 0)
+            {
+                Debug.Log("점수얻음");
+                manager.AddScore(1);
+            }
+            
         }
     }
 
